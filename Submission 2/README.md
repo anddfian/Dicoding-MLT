@@ -101,13 +101,17 @@ Multivariate Analysis menunjukkan hubungan antara dua atau lebih fitur dalam dat
 ### Content-Based Filtering
 + Hapus Duplikasi
   Kita hanya akan menggunakan data unik untuk dimasukkan ke dalam proses pemodelan. Oleh karena itu, kita perlu menghapus data yang duplikat dengan fungsi **drop_duplicates()**. Dalma hal ini, kita membuang data duplikat pada kolom `movieId`.
++ Konversi Data
+  Selanjutnya, kita perlu melakukan konversi data series menjadi list. Dalam hal ini, kita menggunakan fungsi [tolist()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tolist.html) dari library numpy. Dan mencetak jumlah data dari `movie_id`, `movie_title`, dan `movie_genres`
++ Membuat Dictionary
+  Tahap berikutnya, kita akan membuat [dictionary](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) untuk menentukan pasangan key-value pada data `movie_id`, `movie_title`, dan `movie_genres` yang telah kita siapkan sebelumnya.
 
 ### Collaborative Filtering
 + Menyandikan (encode) fitur `userId` dan `movieId` ke dalam indeks integer.
 ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/Encode%20Fitur%20userId%20dan%20movieId.png)
 + Memetakan `userId` dan `movieId` ke dataframe yang berkaitan.
 + Mengecek beberapa hal dalam data seperti jumlah pengguna, jumlah film, kemudian mengubah nilai rating menjadi float.
-+ Membagi Data untuk Training dan Validasi
++ Membagi Data untuk Training dan Validasi dengan komposisi 80:20 dengan menggunakan index slicing.
 
 ## Modeling and Result
 
@@ -176,6 +180,20 @@ Berikut top 5 rekomendasi :
 Sistem telah berhasil merekomendasikan top 5 persen film yang mirip dengan Toy Story (1995), yaitu beberapa film dan seri dari Toy Story itu sendiri. Jadi, jika pengguna menyunkai Toy Story, maka sistem dapat merekomendasikan seri atau movie Toy Story lainnya.
 
 ### Collaborative Filtering
+### RecommenderNet
+![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/RecommenderNet.png)
+Model yang kita gunakan adalah `RecommenderNet` yang terinspirasi dari tutorial dalam situs [Keras](https://keras.io/examples/structured_data/collaborative_filtering_movielens/). Model menghitung skor kecocokan antara pengguna dan film dengan teknik embedding. Pertama kita melakukan proses embedding terhadap **user** dan **movie**. Selanjutnya, lakukan operasi perkalian dot product antara embedding user dan movie. Selain itu, kita juga dapat menambahkan bias untuk setiap user dan movie. Skor kecocokan ditetapkan dalam skala [0, 1] dengan fungsi aktivasi sigmoid.
+
+#### Compile
+| Loss | Optimizer | Metrics |
+|----|-------|-------|
+| Binary Crossentropy  | Adam (Adaptive Moment Estimation) | Root Mean Squared Erorr (RMSE) |
+
+#### Training
+| x | y | batch_size | epochs | validation_data |
+|----|-------|-------|-------|-------|
+| x_train  | y_train | 8 | 100 | (x_val, y_val) |
+
 #### Result
 ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/Result%20Collaborative%20Filtering.png)
 Dari hasil di atas film yang bergenre Drama menjadi film yang paling tinggi ratingnya. Kemudian Top 10 Film yang direkomendasikan sistem adalah film dengan genre Drama dan Comedy.
@@ -188,6 +206,9 @@ Evaluasi hasil sistem dengan recommender system precision dalam menemukan rekome
 RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Mean Square Error. Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besar.
 ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/RMSE.png)
 
+![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/Evaluasi%20Collaborative%20Filtering.png)
+Proses training model cukup smooth dan model konvergen pada epochs sekitar 100. Dari proses ini, kita memperoleh nilai error akhir sebesar sekitar 0.17 dan error pada data validasi sekitar 0.20. Nilai tersebut cukup bagus untuk sistem rekomendasi.
+
 # Referensi
 [Sistem Rekomendasi Film menggunakan Bisecting K-Means dan Collaborative Filtering](https://citisee.amikompurwokerto.ac.id/assets/proceedings/2017/TI08.pdf)
 
@@ -196,4 +217,5 @@ RMSE adalah metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebu
 [Toggle the table of contents tf-idf](https://id.wikipedia.org/wiki/Tf%E2%80%93idf)
 
 [Referensi gambar cosine similarity](https://www.engati.com/glossary/cosine-similarity)
+
 
