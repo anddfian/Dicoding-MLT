@@ -166,5 +166,6 @@ Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Boosting memiliki
 
 # Referensi
 [Prediksi Harga Rumah Menggunakan General Regression Neural Network](https://ejournal.bsi.ac.id/ejurnal/index.php/ji/article/download/9036/pdf)
+
 [Referensi gambar](https://blog.tribunjualbeli.com/43051/kini-cari-rumah-idaman-makin-mudah-lewat-online-cek-kisaran-harganya-di-wilayah-bandung)
 
