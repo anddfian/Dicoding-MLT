@@ -8,7 +8,7 @@ Ini adalah proyek pertama predictive analytics untuk memenuhi submission dicodin
 
 Tempat tinggal seperti rumah adalah kebutuhan primer bagi manusia untuk berlindung dan hidup menetap. Tempat tinggal ini memiliki nilai tergantung dari karakteristik yang dimiliki seperti alamat, kamar, bangunan, lahan, serta fitur lainnya.
 
-![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Rumah.jpg)
+![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%201/Rumah.jpg)
 
 Harga dari setiap rumah diukur dari nilai yang dimiliki oleh rumah tersebut. Namun, harga ini tidak selalu pasti dan sulit untuk melakukan prediksi akurat secara manual. Faktor ketidakpastian perlu dikurangi oleh makelar properti dengan membangun sistem prediksi yang dapat menentukan berapa harga yang pantas untuk karakteristik rumah tertentu.
 
@@ -70,11 +70,11 @@ Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 #### Analisis jumlah nilai unique pada setiap fitur kategorik
 
 Fitur kategorik Alamat memiliki sebaran sample sebagai berikut.
-![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Categorical%20Features%20Univariate.png)
+![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%201/Categorical%20Features%20Univariate.png)
 
 #### Analisis sebaran pada setiap fitur numerik
 
-![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Numerical%20Features%20Univariate.png)
+![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%201/Numerical%20Features%20Univariate.png)
 Berikut analisis dari grafik di atas :
 
 + Sebagian besar rumah memiliki 2 sampai 3 kamar.
@@ -91,16 +91,16 @@ Multivariate Analysis menunjukkan hubungan antara dua atau lebih fitur dalam dat
 Analisis ini dilakukan untuk melihat kolerasi antara fitur kategorik dengan fitur target (harga).
 
 + Fitur Alamat
-  ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Categorical%20Features%20Multivariate.png)
+  ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%201/Categorical%20Features%20Multivariate.png)
   
 #### Analisis fitur numerik
   
 + Melihat kolerasi antara semua fitur numerik
-  ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Numerical%20Features%20Multivariate.png)
+  ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%201/Numerical%20Features%20Multivariate.png)
   Fitur kamar berkorelasi tidak signifikan dengan fitur target (harga). Hal ini mungkin disebabkan oleh kurangnya data dalam penelitian ini. Fitur lahan dan bangunan berkolerasi signifikan dengan fitur target (harga). Hal ini sudah sesuai harapan dari penghapusan outlier yang sudah dilakukan sebelumnya.
 
 + Correlation matriks fitur numerik
-  ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Correlation%20Matrix.png)
+  ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%201/Correlation%20Matrix.png)
   Fitur kamar, bangunan dan lahan memiliki skor korelasi yang besar dengan fitur target (harga). Artinya, fitur bangunan berkorelasi tinggi dengan keempat fitur tersebut. Sementara itu, fitur kamar memiliki korelasi yang paling rendah (0.6) terhadap fitur target (harga).
 
 ## Data preparation
@@ -148,7 +148,7 @@ Analisis ini dilakukan untuk melihat kolerasi antara fitur kategorik dengan fitu
 ## Evaluation
 
 Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan mean squared error (MSE). Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). Mean squared error (MSE) mengukur error dalam model statistik dengan cara menghitung rata-rata error dari kuadrat hasil aktual dikurang hasil prediksi. Berikut formulan MSE :
-![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Rumus%20MSE.png)
+![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%201/Rumus%20MSE.png)
 
 Berikut hasil evaluasi pada proyek ini :
 
@@ -160,7 +160,7 @@ Berikut hasil evaluasi pada proyek ini :
   | boosting | 0.69424  |
 
 + Mean Squared Error (MSE)
-  ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/MSE.png)
+  ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%201/MSE.png)
 
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Boosting memiliki akurasi lebih tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini.
 
