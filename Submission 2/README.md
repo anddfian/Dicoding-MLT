@@ -76,11 +76,13 @@ Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
 
 Fitur kategorik genres memiliki sebaran sample sebagai berikut.
 ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/Univariate%20Movie%20Variabel.png)
+Dataset film memiliki banyak sekali genre unik. Dapat diperhatikan bahwa 1 judul film bisa memiliki banyak genre atau hanya memiliki 1 genre. Pemberian genre yang seperti ini wajar dalam film.
 
 #### Analisis sebaran pada setiap fitur numerik
 
 Fitur numerik rating memiliki sebaran sebagai berikut
 ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/Univariate%20Rating%20Variabel.png)
+Sebagian besar peringkat yang diberikan pengguna tersebar dari rating 3 hingga 5.
 
 ### Multivariate Analysis
 
@@ -134,6 +136,18 @@ Dataframe baru dibuat untuk menunjukkan matriks TF-IDF untuk beberapa film dan g
 
 ![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/TF-IDF.png)
 
+| title | animation | comedy | romance | mystery | adventure | fantasy | crime | drama
+|-------|--------|--------|--------|--------|--------|--------|--------|--------|
+| Crazy Heart (2009) | 0.0 | 0.0 | 0.841412 | 0.0 | 0.0 | 0.0 | 0.0 | 0.540394 |
+| Big Trouble in Little China (1986) | 0.0 | 0.341781 | 0.0 | 0.0 | 0.532527 | 0.617144 | 0.0 | 0.0 |
+| Mona Lisa Smile (2003) | 0.0 | 0.0 | 0.841412 | 0.0 | 0.0 | 0.0 | 0.0 | 0.540394
+| Murder by Death (1976) | 0.0 | 0.373900 | 0.0 | 0.647217 | 0.0 | 0.0 | 0.523016 | 0.0 |
+| Return to Treasure Island (1998) | 0.721671 | 0.373900 | 0.0 | 0.0 | 0.582571 | 0.0 | 0.0 | 0.0 |
+| Bad Boy Bubby (1993) | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 |
+| Wicked Blood (2014) | 0.0 | 0.0 | 0.0 | 0.0 |  0.0 | 0.0 | 0.0 | 0.433226
+| Heavyweights (Weavy Weights) (1995) | 0.0 | 0.468306 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+| Field of Dreams (1989) | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.651781 |  0.0 | 0.333713
+
 #### Cosine Similarity
 Cosine Similarity mengukur kesamaan antara dua vektor dan menentukan apakah kedua vektor menunjuk ke arah yang sama. Teknik ini bekerja dengan menghitung sudut cosinus antara dua vektor. Semakin kecil sudut cosinus antara dua vektor, semakin besar nilai kemiripan cosinusnya.
 
@@ -181,7 +195,6 @@ Sistem telah berhasil merekomendasikan top 5 persen film yang mirip dengan Toy S
 
 ### Collaborative Filtering
 ### RecommenderNet
-![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/RecommenderNet.png)
 Model yang kita gunakan adalah `RecommenderNet` yang terinspirasi dari tutorial dalam situs [Keras](https://keras.io/examples/structured_data/collaborative_filtering_movielens/). Model menghitung skor kecocokan antara pengguna dan film dengan teknik embedding. Pertama kita melakukan proses embedding terhadap **user** dan **movie**. Selanjutnya, lakukan operasi perkalian dot product antara embedding user dan movie. Selain itu, kita juga dapat menambahkan bias untuk setiap user dan movie. Skor kecocokan ditetapkan dalam skala [0, 1] dengan fungsi aktivasi sigmoid.
 
 #### Compile
@@ -195,7 +208,29 @@ Model yang kita gunakan adalah `RecommenderNet` yang terinspirasi dari tutorial 
 | x_train  | y_train | 8 | 100 | (x_val, y_val) |
 
 #### Result
-![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/Result%20Collaborative%20Filtering.png)
++ Movie with high ratings from user
+  | title | genre |
+  |-------|-------|
+  | E.T. the Extra-Terrestrial (1982) | Children\|Drama\|Sci-Fi |
+  | Love Actually (2003) | Comedy\|Drama\|Romance |
+  | Home Alone 2: Lost in New York (1992) | Children\|Comedy |
+  | Chronicles of Narnia: The Lion, the Witch and the Wardrobe, The (2005) | Adventure\|Children\|Fantasy |
+  | Hugo (2011) | Children\|Drama\|Mystery |
+
++ Top 10 movie recomendation
+  | title | genre |
+  |-------|-------|
+  | Trial, The (Procès, Le) (1962) | Drama |
+  | What Men Talk About (2010) | Comedy |
+  | Alesha Popovich and Tugarin the Dragon (2004) | Animation\|Comedy\|Drama |
+  | Jonah Who Will Be 25 in the Year 2000 (Jonas qui aura 25 ans en l'an 2000) (1976) | Comedy |
+  | Adam's Rib (1949) | Comedy\|Romance |
+  | Heidi Fleiss: Hollywood Madam (1995) | Documentary |
+  | Awfully Big Adventure, An (1995) | Drama |
+  | Stunt Man, The (1980) | Action\|Adventure\|Comedy\|Drama\|Romance\|Thriller |
+  | Enter the Void (2009) | Drama |
+  | Belle époque (1992) | Comedy|Romance |
+
 Dari hasil di atas film yang bergenre Drama menjadi film yang paling tinggi ratingnya. Kemudian Top 10 Film yang direkomendasikan sistem adalah film dengan genre Drama dan Comedy.
 ## Evaluation
 
