@@ -134,8 +134,6 @@ Setelah itu hasil TF-IDF tadi ditransformasikan ke dalam bentuk matriks dengan f
 
 Dataframe baru dibuat untuk menunjukkan matriks TF-IDF untuk beberapa film dan genre. Semakin tinggi nilai matriks menunjukkan semakin erat hubungan antara film dengan genre tersebut. Misalkan film Bad Boy Bubby (1993) merupakan genre drama terlihat dari nilai matriks 1.0 yang didapat film tersebut pada genre drama.
 
-![](https://raw.githubusercontent.com/anddfian/Dicoding-MLT/main/Submission%202/TF-IDF.png)
-
 | title | animation | comedy | romance | mystery | adventure | fantasy | crime | drama
 |-------|--------|--------|--------|--------|--------|--------|--------|--------|
 | Crazy Heart (2009) | 0.0 | 0.0 | 0.841412 | 0.0 | 0.0 | 0.0 | 0.0 | 0.540394 |
